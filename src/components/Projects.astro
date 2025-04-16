@@ -10,21 +10,24 @@ const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale });
 ---
 
-<div class="flex flex-col gap-y-3">
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
   {
     cardsData.length > 0 ? (
-      cardsData.map((card) => (
-        <Card
-          id={card.id}
-          url={card.url}
-          href={card.href}
-          title={card.title}
-          isNew={card.isNew}
-          subtitle={card.subtitle}
-          imageSrc={card.imageSrc}
-          imageAlt={card.imageAlt}
-        />
-      ))
+      cardsData
+        .slice() // Crear una copia para no mutar el array original
+        .reverse()
+        .map((card) => (
+          <Card
+            id={card.id}
+            date={card.date}
+            href={card.href}
+            title={card.title}
+            status={card.status}
+            description={card.description}
+            imageSrc={card.imageSrc}
+            imageAlt={card.imageAlt}
+          />
+        ))
     ) : (
       <NoDataCard
         message={i18n.PROJECTS.empty.message}

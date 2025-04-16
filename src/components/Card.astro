@@ -9,13 +9,13 @@ const i18n = getI18N({ currentLocale });
 
 const {
   id = "",
-  url = "",
+  date = "",
   href = "#",
   title = "Título predeterminado",
-  subtitle = "Subtítulo predeterminado",
+  description = "Subtítulo predeterminado",
   imageSrc = "",
   imageAlt = "Ícono predeterminado",
-  isNew = false, // Nueva prop para controlar el badge
+  status = "", // Nueva prop para controlar el badge con texto
 } = Astro.props;
 ---
 
@@ -23,7 +23,7 @@ const {
   id={id}
   href={href}
   data-section={id}
-  class="relative p-1 rounded-lg flex items-center justify-between border-[1px]
+  class="relative rounded-lg flex items-stretch border-[1px]
    border-hub-border
    dark:border-hub-border-dark
    hover:drop-shadow-md
@@ -33,44 +33,92 @@ const {
   target="_blank"
   rel="noopener noreferrer"
 >
-  <!-- Badge de "New" -->
+  <!-- Badge de "status" -->
   {
-    isNew && (
+    status && (
       <div
-        class=" animate-pulse absolute top-0 right-2 transform translate-x-1/2 -translate-y-1/2 bg-sky-500
+        class=" absolute right-[22px] bottom-[3px] bg-sky-500/70
        text-white 
-       text-xs 
-       font-semibold px-2 py-0.5 rounded-full shadow-md z-10"
+       text-[11px] 
+       font-medium px-2 py-0.5 rounded-lg shadow-md z-10"
       >
-        {i18n.PROJECTS.BADGE.NEW}
+        {status}
       </div>
     )
   }
 
   <!-- Contenedor izquierdo -->
-  <div class="flex items-center">
-    <div
-      class="rounded-lg border-[1px] size-9 flex items-center justify-center
-       border-hub-border
-        dark:border-hub-border-dark
-      dark:bg-hub-background
-      overflow-hidden"
-    >
-      <img src={imageSrc} alt={imageAlt} class="w-full h-full object-cover" />
-    </div>
 
-    <div class="pl-4 flex flex-col justify-start">
-      <h2 class="font-medium text-base text-hub-title dark:text-hub-title-dark">
-        {title}
-      </h2>
-      <small class="text-hub-subtitle dark:text-hub-subtitle-dark text-xs"
-        >{url}</small
+  <div
+    class="w-[92px] aspect-square rounded-l-lg overflow-hidden flex-shrink-0 border-hub-border
+        dark:border-hub-border-dark
+      dark:bg-hub-background"
+  >
+    <img src={imageSrc} alt={imageAlt} class="w-full h-full object-cover" />
+  </div>
+
+  <div class="p-4">
+    <div class="h-[90px] w-full grid grid-rows-[auto_1fr_auto]">
+      <div class="flex justify-between items-center">
+        <h2
+          class="font-medium text-base text-hub-title dark:text-hub-title-dark"
+        >
+          {title}
+        </h2>
+      </div>
+
+      <small class="text-hub-subtitle dark:text-hub-subtitle-dark text-sm">
+        {description}
+      </small>
+
+      <small class="text-hub-subtitle dark:text-hub-subtitle-dark text-[10px]"
+        >{date}</small
       >
+    </div>
+    <!-- Icono derecho -->
+    <ArrowUpRight
+      class="absolute right-0 bottom-0 size-6 text-hub-subtitle dark:text-hub-subtitle-dark transition-transform duration-300 ease-in-out group-hover:rotate-45"
+    />
+  </div>
+</a>
+
+<!-- <div
+  class="bg-white border border-[#E5E7EB] rounded-lg p-4 w-full max-w-[370px] h-[242px] grid grid-rows-[auto_1fr_auto]"
+>
+  <div class="flex justify-between items-center">
+    <h2 class="font-semibold text-lg">{title}</h2>
+    <div class="flex gap-2">
+      {
+        !isArchived && (
+          <button
+            aria-label="edit button"
+            onClick={onEdit}
+            class="text-[#9CA3AF] hover:text-gray-700 cursor-pointer"
+          >
+            <Edit size={16} />
+          </button>
+        )
+      }
+      <button
+        aria-label="delete button"
+        onClick={handleDelete}
+        class="text-[#9CA3AF] hover:text-red-600 cursor-pointer"
+      >
+        <Trash2 size={16} />
+      </button>
     </div>
   </div>
 
-  <!-- Icono derecho -->
-  <ArrowUpRight
-    class="size-6 text-hub-subtitle dark:text-hub-subtitle-dark transition-transform duration-300 ease-in-out group-hover:rotate-45"
-  />
-</a>
+  <p class="text-[#4B5563] mt-2">{description}</p>
+
+  <div class="mt-3 text-sm text-[#6B7280] flex justify-between items-center">
+    <span>Created: {date}</span>
+    <button
+      aria-label="Archivated"
+      onClick={onArchive}
+      class="text-[#2563EB] cursor-pointer"
+    >
+      {isArchived ? "Unarchive" : "Archive"}
+    </button>
+  </div>
+</div> -->

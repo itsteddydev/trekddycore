@@ -7,7 +7,7 @@ export default {
 			//      ### Fonts
 			fontFamily: {
 				// #### Headings, Call- to - actions, Header Navigation
-				"sans": ['"SF Pro Display"', 'sans-serif'], // Usando la fuente personalizada
+				// "sans": ['"SF Pro Display"', 'sans-serif'], // Usando la fuente personalizada
 				// #### Body
 				// "serif": ['"Open Sans"', "serif"], // Otra fuente para el cuerpo
 			},
