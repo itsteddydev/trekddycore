@@ -1,8 +1,19 @@
 
-body {
+/* body {
   font-family: "Manrope Variable", sans-serif;
+} */
+ /* body {
+  font-family: 'Press Start 2P', system-ui;
+} */
+/* body {
+  font-family: 'VT323', monospace;
+} */
+ /* body {
+  font-family: 'Orbitron Variable', sans-serif;
+} */
+ body {
+  font-family: 'Space Mono', monospace;
 }
-
 
 .scrollbar-hide {
   -ms-overflow-style: none;

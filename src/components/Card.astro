@@ -19,17 +19,30 @@ const {
 } = Astro.props;
 ---
 
-<a
-  id={id}
-  href={href}
-  data-section={id}
-  class="relative rounded-lg flex items-stretch border-[1px]
-   border-hub-border
+<!-- border-hub-border
    dark:border-hub-border-dark
    hover:drop-shadow-md
    hover:bg-hub-background-nav
    dark:bg-hub-background-nav-dark
-   hover:dark:bg-hub-background-dark group"
+   hover:dark:bg-hub-background-dark group
+   shadow-[4px_4px_0px_#c4dc72] 
+   shadow-[rgba(0,0,0,0.2)_0px_8px_0px,_rgb(232,255,138)_0px_8px_0px]--><!-- <a
+  id={id}
+  href={href}
+  data-section={id}
+  class="relative rounded-lg flex items-stretch border-2 border-card-border
+  bg-card-background shadow-[4px_4px_0px_#c4dc72]"
+  target="_blank"
+  rel="noopener noreferrer"
+> -->
+<a
+  id={id}
+  href={href}
+  data-section={id}
+  class="relative rounded-lg flex items-stretch border-2 border-card-border
+  bg-card-background shadow-[4px_4px_0px_#c4dc72]
+  hover:shadow-[6px_6px_0px_#c4dc72] hover:translate-x-[2px] hover:translate-y-[2px]
+  transition-all duration-200 ease-in-out group"
   target="_blank"
   rel="noopener noreferrer"
 >
@@ -47,8 +60,6 @@ const {
     )
   }
 
-  <!-- Contenedor izquierdo -->
-
   <div
     class="w-[92px] aspect-square rounded-l-lg overflow-hidden flex-shrink-0 border-hub-border
         dark:border-hub-border-dark
@@ -57,68 +68,25 @@ const {
     <img src={imageSrc} alt={imageAlt} class="w-full h-full object-cover" />
   </div>
 
-  <div class="p-4">
-    <div class="h-[90px] w-full grid grid-rows-[auto_1fr_auto]">
-      <div class="flex justify-between items-center">
-        <h2
-          class="font-medium text-base text-hub-title dark:text-hub-title-dark"
-        >
-          {title}
-        </h2>
-      </div>
+  <div class="pl-2">
+    <div class="w-full grid grid-rows-[auto_1fr_auto]">
+      <h2
+        class="font-bold text-base text-card-text overflow-hidden text-ellipsis whitespace-nowrap"
+      >
+        {title}
+      </h2>
 
-      <small class="text-hub-subtitle dark:text-hub-subtitle-dark text-sm">
+      <small
+        class="text-card-text text-xs overflow-hidden text-ellipsis line-clamp-2"
+      >
         {description}
       </small>
 
-      <small class="text-hub-subtitle dark:text-hub-subtitle-dark text-[10px]"
-        >{date}</small
-      >
+      <small class="absolute text-card-text text-[10px] bottom-2">{date}</small>
     </div>
-    <!-- Icono derecho -->
+
     <ArrowUpRight
-      class="absolute right-0 bottom-0 size-6 text-hub-subtitle dark:text-hub-subtitle-dark transition-transform duration-300 ease-in-out group-hover:rotate-45"
+      class="absolute right-0 bottom-0 size-6 text-card-text transition-transform duration-300 ease-in-out group-hover:rotate-45"
     />
   </div>
 </a>
-
-<!-- <div
-  class="bg-white border border-[#E5E7EB] rounded-lg p-4 w-full max-w-[370px] h-[242px] grid grid-rows-[auto_1fr_auto]"
->
-  <div class="flex justify-between items-center">
-    <h2 class="font-semibold text-lg">{title}</h2>
-    <div class="flex gap-2">
-      {
-        !isArchived && (
-          <button
-            aria-label="edit button"
-            onClick={onEdit}
-            class="text-[#9CA3AF] hover:text-gray-700 cursor-pointer"
-          >
-            <Edit size={16} />
-          </button>
-        )
-      }
-      <button
-        aria-label="delete button"
-        onClick={handleDelete}
-        class="text-[#9CA3AF] hover:text-red-600 cursor-pointer"
-      >
-        <Trash2 size={16} />
-      </button>
-    </div>
-  </div>
-
-  <p class="text-[#4B5563] mt-2">{description}</p>
-
-  <div class="mt-3 text-sm text-[#6B7280] flex justify-between items-center">
-    <span>Created: {date}</span>
-    <button
-      aria-label="Archivated"
-      onClick={onArchive}
-      class="text-[#2563EB] cursor-pointer"
-    >
-      {isArchived ? "Unarchive" : "Archive"}
-    </button>
-  </div>
-</div> -->

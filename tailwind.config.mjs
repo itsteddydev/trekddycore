@@ -33,7 +33,10 @@ export default {
 				'hub-title-dark': '#FFFFFF',
 				'hub-subtitle-dark': '#999999',
 				'hub-background-nav-dark': '#080C11',
-
+				'card-background': '#e8ff8a',
+				'card-text': '#c18503',
+				'card-border': '#FBAB01',
+				'card-shadow': '[rgba(0,0,0,0.2)_0px_8px_0px,_rgb(232,255,138)_0px_8px_0px]',
 
 			},
 			backgroundImage: {
