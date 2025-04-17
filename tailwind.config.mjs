@@ -40,7 +40,9 @@ export default {
 				'card-border': '#FBAB01', // dorado brillante
 				'card-shadow': '[rgba(0,0,0,0.2)_0px_8px_0px,_rgb(232,255,138)_0px_8px_0px]',
 				'card-shadow-bg': '#f3ffa4',
+
 				'hub-inactive': '#B0B0B0',
+				'card-light-background': '#f3ffa4',
 				// light: {
 				// 	background: '#fffcc4', // fondo crema intenso
 				// 	navbar: '#ffe86e', // amarillo cálido como card-border
