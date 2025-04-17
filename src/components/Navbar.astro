@@ -16,7 +16,10 @@ const i18n = getI18N({ currentLocale });
 
 <div class="flex flex-col">
   <nav
-    class="flex gap-1 text-hub-inactive rounded-full border-[1px] p-[2px] border-hub-border dark:border-hub-border-dark bg-hub-background-nav dark:bg-hub-background-nav whitespace-nowrap overflow-x-auto scrollbar-hide"
+    class="flex gap-3 justify-between rounded-full h-14 pt-1 pr-4 pb-[10px] pl-1 whitespace-nowrap overflow-x-auto scrollbar-hide
+    text-hub-inactive
+    border-card-border
+   border-2"
   >
     <NavButton class="tab-btn" aria-label="btn-projects" data-target="projects"
       >{i18n.NAVBAR.PROJECTS}</NavButton
@@ -74,12 +77,17 @@ const i18n = getI18N({ currentLocale });
   const defaultActive = document.querySelector('[data-target="projects"]');
   if (defaultActive) {
     defaultActive.classList.add(
-      "bg-hub-background",
-      "drop-shadow-md",
-      "text-hub-title",
-      "font-bold",
-      "dark:text-hub-title-dark",
-      "dark:bg-hub-background-dark",
+      "text-card-text",
+      "border-2",
+      "border-card-border",
+      "bg-card-background",
+      "shadow-[4px_4px_0px_#c4dc72]",
+      "hover:shadow-[6px_6px_0px_#c4dc72]",
+      "hover:translate-x-[2px]",
+      "hover:translate-y-[2px]",
+      "transition-all",
+      "duration-200",
+      "ease-in-out",
     );
     const projectsSection = document.getElementById("projects");
     if (projectsSection) {
@@ -94,21 +102,31 @@ const i18n = getI18N({ currentLocale });
       // Actualiza el estado de los botones
       buttons.forEach((btn) =>
         btn.classList.remove(
-          "bg-hub-background",
-          "drop-shadow-md",
-          "text-hub-title",
-          "font-bold",
-          "dark:text-hub-title-dark",
-          "dark:bg-hub-background-dark",
+          "text-card-text",
+          // "border-2",
+          // "border-card-border",
+          // "bg-card-background",
+          // "shadow-[4px_4px_0px_#c4dc72]",
+          // "hover:shadow-[6px_6px_0px_#c4dc72]",
+          "hover:translate-x-[2px]",
+          "hover:translate-y-[2px]",
+          "transition-all",
+          "duration-200",
+          "ease-in-out",
         ),
       );
       button.classList.add(
-        "bg-hub-background",
-        "drop-shadow-md",
-        "text-hub-title",
-        "font-bold",
-        "dark:text-hub-title-dark",
-        "dark:bg-hub-background-dark",
+        "text-card-text",
+        "border-2",
+        "border-card-border",
+        "bg-card-background",
+        "shadow-[4px_4px_0px_#c4dc72]",
+        "hover:shadow-[6px_6px_0px_#c4dc72]",
+        "hover:translate-x-[2px]",
+        "hover:translate-y-[2px]",
+        "transition-all",
+        "duration-200",
+        "ease-in-out",
       );
 
       // Oculta todas las secciones
