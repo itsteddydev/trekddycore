@@ -15,37 +15,49 @@ const i18n = getI18N({ currentLocale });
 ---
 
 <div class="flex flex-col">
-  <nav
-    class="flex gap-3 justify-between rounded-full h-14 pt-1 pr-4 pb-[10px] pl-1 whitespace-nowrap overflow-x-auto scrollbar-hide
-    text-hub-inactive
-    border-card-border
-   border-2"
-  >
-    <NavButton class="tab-btn" aria-label="btn-projects" data-target="projects"
-      >{i18n.NAVBAR.PROJECTS}</NavButton
+  <!-- border-card-border
+ border-2 -->
+  <div class="relative">
+    <nav
+      class="flex gap-3 justify-between rounded-full h-14 pt-1 pr-4 pb-[10px] pl-1 whitespace-nowrap overflow-x-auto scrollbar-hide
+    text-card-text/80 dark:bg-hub-background-dark"
     >
-    <!-- <NavButton class="tab-btn" aria-label="btn-Articles" data-target="articles"
+      <NavButton
+        class="tab-btn"
+        aria-label="btn-projects"
+        data-target="projects">{i18n.NAVBAR.PROJECTS}</NavButton
+      >
+      <!-- <NavButton class="tab-btn" aria-label="btn-Articles" data-target="articles"
       >{i18n.NAVBAR.ARTICLES}</NavButton
     > -->
-    <NavButton
-      class="tab-btn"
-      aria-label="btn-projects"
-      data-target="booksMarks">{i18n.NAVBAR.BOOKSMARKS}</NavButton
+      <NavButton
+        class="tab-btn"
+        aria-label="btn-projects"
+        data-target="booksMarks">{i18n.NAVBAR.BOOKSMARKS}</NavButton
+      >
+      <NavButton
+        class="tab-btn"
+        aria-label="btn-projects"
+        data-target="educationHub">{i18n.NAVBAR.EDUCATION_HUB}</NavButton
+      >
+      <NavButton
+        class="tab-btn"
+        aria-label="btn-projects"
+        data-target="funHobbies">{i18n.NAVBAR.FUN_HOBBIES}</NavButton
+      >
+      <NavButton
+        class="tab-btn"
+        aria-label="btn-funHobbies"
+        data-target="shopNow">{i18n.NAVBAR.SHOP_NOW}</NavButton
+      >
+    </nav>
+
+    <!-- Fade al final -->
+    <div
+      class="pointer-events-none absolute top-0 right-0 h-full w-10 bg-gradient-to-l dark:from-hub-background-dark from-hub-background to-transparent rounded-r-full"
     >
-    <NavButton
-      class="tab-btn"
-      aria-label="btn-projects"
-      data-target="educationHub">{i18n.NAVBAR.EDUCATION_HUB}</NavButton
-    >
-    <NavButton
-      class="tab-btn"
-      aria-label="btn-projects"
-      data-target="funHobbies">{i18n.NAVBAR.FUN_HOBBIES}</NavButton
-    >
-    <NavButton class="tab-btn" aria-label="btn-funHobbies" data-target="shopNow"
-      >{i18n.NAVBAR.SHOP_NOW}</NavButton
-    >
-  </nav>
+    </div>
+  </div>
 
   <main class="mt-6">
     <SectionContainer id="projects" class="tab-content mt-0 mb-0">

@@ -3,12 +3,17 @@ const { class: className } = Astro.props;
 ---
 
 <a
-  class=`${className} text-hub-inactive hover:text-hub-title rounded-full border-[1px] size-9 flex items-center justify-center border-hub-border 
-  dark:border-hub-border-dark 
-  hover:drop-shadow-md 
-  hover:bg-hub-background-nav
-   hover:dark:bg-hub-background-nav-dark
-    dark:text-hub-inactive `
+  class=`${className} text-card-text rounded-lg border-2  flex items-center justify-center 
+ 
+    size-9 relative  border-card-border
+  bg-card-background
+  shadow-[4px_4px_0px_#c4dc72]
+  hover:shadow-[6px_6px_0px_#c4dc72]
+  hover:translate-x-[2px]
+  hover:translate-y-[2px]
+  transition-all
+  duration-200
+  ease-in-out`
   {...Astro.props}
   rel="noopener noreferrer"
 >
