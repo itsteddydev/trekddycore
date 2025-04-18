@@ -9,32 +9,16 @@ const i18n = getI18N({ currentLocale });
 
 const {
   id = "",
-  date = "",
+  price = "",
   href = "#",
   title = "Título predeterminado",
-  description = "Subtítulo predeterminado",
+  description = "",
   imageSrc = "",
   imageAlt = "Ícono predeterminado",
   status = "", // Nueva prop para controlar el badge con texto
 } = Astro.props;
 ---
 
-<!-- border-hub-border
-   dark:border-hub-border-dark
-   hover:drop-shadow-md
-   hover:bg-hub-background-nav
-   dark:bg-hub-background-nav-dark
-   hover:dark:bg-hub-background-dark group
-   shadow-[4px_4px_0px_#c4dc72] 
-   shadow-[rgba(0,0,0,0.2)_0px_8px_0px,_rgb(232,255,138)_0px_8px_0px]--><!-- <a
-  id={id}
-  href={href}
-  data-section={id}
-  class="relative rounded-lg flex items-stretch border-2 border-card-border
-  bg-card-background shadow-[4px_4px_0px_#c4dc72]"
-  target="_blank"
-  rel="noopener noreferrer"
-> -->
 <a
   id={id}
   href={href}
@@ -52,20 +36,6 @@ const {
   target="_blank"
   rel="noopener noreferrer"
 >
-  <!-- Badge de "status" -->
-  {
-    status && (
-      <div
-        class=" absolute right-[22px] bottom-[3px] bg-card-border
-       text-card-text-btn 
-       text-[11px] 
-       font-medium px-2 py-0.5 rounded-lg shadow-md z-10"
-      >
-        {status}
-      </div>
-    )
-  }
-
   <div
     class="w-[92px] aspect-square rounded-l-lg overflow-hidden flex-shrink-0 border-hub-border
         dark:border-hub-border-dark
@@ -88,7 +58,11 @@ const {
         {description}
       </small>
 
-      <small class="absolute text-card-text text-[10px] bottom-2">{date}</small>
+      <small
+        class="absolute text-card-text-btn bottom-2 font-medium px-2 rounded-lg bg-card-border"
+      >
+        {price ? price : "Free"}
+      </small>
     </div>
 
     <ArrowUpRight

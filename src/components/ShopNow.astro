@@ -1,9 +1,10 @@
 ---
 import { getI18N } from "@/i18n";
-import CardDocuments from "../components/CardDocuments.astro";
+
 import NoDataCard from "../components/NoDataCard.astro";
-// import { cardsData } from "../data/educationhub.js";
-const cardsData: any[] = [];
+import { cardsData } from "../data/shopnow.js";
+import CardShop from "./CardShop.astro";
+// const cardsData: any[] = [];
 //Para cambiar idioma de textos
 const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale });
@@ -12,16 +13,20 @@ const i18n = getI18N({ currentLocale });
 <div class="flex flex-col gap-y-3">
   {
     cardsData.length > 0 ? (
-      cardsData.map((card) => (
-        <CardDocuments
-          id={card.id}
-          href={card.href}
-          title={card.title}
-          subtitle={card.subtitle}
-          imageSrc={card.imageSrc}
-          imageAlt={card.imageAlt}
-        />
-      ))
+      cardsData
+        .slice()
+        .reverse()
+        .map((card) => (
+          <CardShop
+            id={card.id}
+            price={card.price}
+            href={card.href}
+            title={card.product_name}
+            description={card.description}
+            imageSrc={card.imageSrc}
+            imageAlt={card.imageAlt}
+          />
+        ))
     ) : (
       <NoDataCard
         message={i18n.SHOP_NOW.empty.message}
